@@ -22,6 +22,8 @@ export default function Login() {
       alert("Enter valid credentials")
     }
     if (json.success) {
+      localStorage.setItem("authToken", json.authToken)
+      console.log(localStorage.getItem("authToken"));
       navigate('/')
     }
 
@@ -43,7 +45,7 @@ export default function Login() {
             <label htmlFor="password" className="form-label">Password</label>
             <input type="password" className="form-control" id="password" name='password' value={credentials.password} onChange={onChange} />
           </div>
-          <button type="submit" className="btn btn-success text-white">SignUp</button>
+          <button type="submit" className="btn btn-success text-white">Login</button>
           <Link to="/createuser" className='m-3 btn btn-danger'>Don't Have Account </Link>
         </form>
       </div>
